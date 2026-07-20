@@ -1,0 +1,27 @@
+# Python
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.db
+*.sqlite3
+
+# Environment
+.env
+.env.local
+
+# Logs
+*.log
+shadow_journal.md
+
+# History
+file_history/*.py
+!file_history/.gitkeep
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
