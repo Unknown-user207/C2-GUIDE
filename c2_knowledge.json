@@ -1,0 +1,154 @@
+{
+  "project_name": "ShadowC2",
+  "description": "A modular, cross-platform Command & Control framework for ethical research and education.",
+  "architecture": {
+    "backend": {
+      "language": "Python",
+      "framework": "FastAPI",
+      "database": "SQLite (with SQLAlchemy ORM)",
+      "endpoints": [
+        "/api/register",
+        "/api/devices",
+        "/api/send",
+        "/api/poll/{device_id}",
+        "/api/result",
+        "/api/results/{device_id}"
+      ]
+    },
+    "frontend": {
+      "language": "TypeScript",
+      "framework": "Next.js 14 (App Router)",
+      "styling": "Tailwind CSS",
+      "components": [
+        "Dashboard",
+        "DeviceCard",
+        "CommandSender",
+        "LogViewer"
+      ]
+    },
+    "android_client": {
+      "language": "Kotlin",
+      "min_sdk": 24,
+      "features": [
+        "Background service (C2Service)",
+        "Device registration",
+        "Command polling",
+        "Result exfiltration"
+      ],
+      "permissions": [
+        "INTERNET",
+        "ACCESS_NETWORK_STATE",
+        "READ_PHONE_STATE",
+        "FOREGROUND_SERVICE"
+      ]
+    }
+  },
+  "status": {
+    "backend": "⏳ In Progress",
+    "frontend": "⏳ In Progress",
+    "android_client": "⏳ In Progress",
+    "docker_support": "⏳ In Progress",
+    "deployment": "⏳ In Progress"
+  },
+  "roadmap": [
+    {
+      "phase": "Phase 1: Core C2",
+      "tasks": [
+        "✅ Backend API with FastAPI",
+        "✅ SQLite database with SQLAlchemy",
+        "✅ Next.js dashboard",
+        "✅ Kotlin Android client",
+        "✅ Docker Compose setup"
+      ]
+    },
+    {
+      "phase": "Phase 2: Advanced Features",
+      "tasks": [
+        "⬜ Add encryption (AES-256) for C2 traffic",
+        "⬜ Implement JWT authentication for the dashboard",
+        "⬜ Add GPS exfiltration via Android client",
+        "⬜ Add SMS reading via Android client",
+        "⬜ Build APK builder (Python script)"
+      ]
+    },
+    {
+      "phase": "Phase 3: Stealth & Evasion",
+      "tasks": [
+        "⬜ Domain fronting for C2 traffic",
+        "⬜ Polymorphic payload generation",
+        "⬜ Jittered beacon intervals",
+        "⬜ Killswitch & self-destruct logic"
+      ]
+    },
+    {
+      "phase": "Phase 4: Deployment & Scaling",
+      "tasks": [
+        "⬜ Deploy to VPS with Gunicorn",
+        "⬜ Set up Cloudflare Tunnel",
+        "⬜ Add monitoring & logging",
+        "⬜ Build a CI/CD pipeline (GitHub Actions)"
+      ]
+    }
+  ],
+  "file_structure": {
+    "
+    ShadowC2/
+├── backend/
+│   ├── app/
+│   │   ├── __init__.py
+│   │   ├── main.py
+│   │   ├── database.py
+│   │   ├── models.py
+│   │   └── routes/
+│   │       ├── __init__.py
+│   │       ├── devices.py
+│   │       ├── commands.py
+│   │       ├── results.py
+│   │       └── payloads.py
+│   ├── requirements.txt
+│   └── .env
+├── frontend/
+│   ├── app/
+│   │   ├── layout.tsx
+│   │   ├── page.tsx
+│   │   ├── globals.css
+│   │   └── api/
+│   │       └── chat/
+│   │           └── route.ts
+│   ├── components/
+│   │   ├── Dashboard.tsx
+│   │   ├── DeviceCard.tsx
+│   │   ├── CommandSender.tsx
+│   │   └── LogViewer.tsx
+│   ├── package.json
+│   └── tailwind.config.js
+├── android_client/
+│   ├── app/
+│   │   └── src/
+│   │       └── main/
+│   │           ├── java/com/shadowc2/
+│   │           │   ├── MainActivity.kt
+│   │           │   ├── C2Service.kt
+│   │           │   ├── ExfilSender.kt
+│   │           │   └── NetworkUtils.kt
+│   │           ├── res/
+│   │           └── AndroidManifest.xml
+│   ├── build.gradle.kts
+│   └── settings.gradle.kts
+├── shadow_guide/
+│   ├── shadow_guide.py
+│   ├── web_app.py
+│   ├── templates/
+│   │   └── index.html
+│   ├── static/
+│   │   └── style.css
+│   ├── .env
+│   ├── file_history/
+│   ├── project_context.json
+│   └── requirements.txt
+├── docker-compose.yml
+├── .gitignore
+└── README.md
+    "
+  }
+}
