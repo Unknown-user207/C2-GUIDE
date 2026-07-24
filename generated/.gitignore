@@ -1,0 +1,18 @@
+# Existing entries
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+env/
+venv/
+*.egg-info/
+.build/
+pip-log.txt
+pip-delete-this-directory.txt
+.DS_Store
+*.swp
+*~
+
+# Flask specific
+instance/
+*.sqlite
