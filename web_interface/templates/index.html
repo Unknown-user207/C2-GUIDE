@@ -1,16 +1,54 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Shadow Guide</title>
-    <link rel="stylesheet" href="/static/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>project-assistant</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/static/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 </head>
 <body>
-    <div class="container">
-        <h1>🧙‍♂️ Shadow Guide</h1>
-        <div id="chat"></div>
-        <input type="text" id="input" placeholder="Ask the guide...">
-        <button onclick="send()">Send</button>
+  <div class="window">
+    <div class="titlebar">
+      <div class="dots"><span></span><span></span><span></span></div>
+      <div class="titlebar-label">project-assistant &mdash; chat</div>
+      <div class="sync-status" id="sync-status" title="Shares memory with the CLI">
+        <span class="sync-dot" id="sync-dot"></span>
+        <span class="sync-label">synced</span>
+      </div>
     </div>
-    <script src="/static/script.js"></script>
+
+    <div class="toolbar">
+      <label class="model-label" for="model-select">model</label>
+      <select id="model-select">
+        {% for id, m in models.items() %}
+        <option value="{{ id }}" {% if not m.available and id != '4' %}disabled{% endif %}>
+          {{ m.name }}{% if not m.available and id != '4' %} (no key){% endif %}
+        </option>
+        {% endfor %}
+      </select>
+    </div>
+
+    <div id="chat"></div>
+
+    <div id="files-panel">
+      <div id="files-header">
+        <span># generated/</span>
+        <button id="refresh-files-btn">refresh</button>
+      </div>
+      <div id="files-list"></div>
+    </div>
+
+    <div class="input-row">
+      <span class="prompt-glyph">&#10095;</span>
+      <textarea id="input" placeholder="ask for a project, a fix, anything to keep as a file..." rows="1"></textarea>
+      <button id="send-btn">run</button>
+    </div>
+  </div>
+
+  <script src="/static/script.js"></script>
 </body>
 </html>

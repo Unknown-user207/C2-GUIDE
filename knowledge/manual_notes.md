@@ -1,4 +1,0 @@
-# Manual Notes
-
-## Project Notes
-
